@@ -1,0 +1,78 @@
+<div class="grid">
+  <p-panel class="col-12 xl:col-4 lg:col-4 md:col-6 sm:col-12">
+    <ng-template #header>
+      <div class="flex align-items-center gap-2">
+        <span class="font-bold p-error">{{ authService.system }}</span>
+      </div>
+    </ng-template>
+
+    <ng-template #content>
+      <p-fluid>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="grid">
+          <div class="field col-12 text-center">
+            @if (!environment.production) {
+              <h2>PRUEBAS</h2>
+            }
+
+            <h2 [ngClass]="{'p-error':!environment.production}">
+              Ingreso al Sistema {{ authService.systemShortName }}
+            </h2>
+          </div>
+
+          <div class="p-field col-12">
+            <label
+              for="username"
+              appLabel [label]="LoginFormEnum.username"
+              [required]="usernameField"></label>
+
+            <input pInputText id="username" formControlName="username">
+
+
+            <small appErrorMessage
+                    class="p-error"
+                   [errors]="usernameField.errors"
+                   [touched]="usernameField.untouched"
+                   [dirty]="usernameField.dirty">
+            </small>
+          </div>
+
+          <div class="p-field col-12">
+            <label for="password" appLabel [label]="LoginFormEnum.password" [required]="passwordField"></label>
+
+            <p-password id="password" formControlName="password"/>
+
+            <small appErrorMessage
+                   [errors]="passwordField.errors"
+                   [touched]="passwordField.untouched"
+                   [dirty]="passwordField.dirty">
+            </small>
+          </div>
+
+          @if (coreService.isLoading) {
+            <div class="field col-12">
+              <app-progress-bar message="Ingresando al sistema..."/>
+            </div>
+          }
+
+          <div class="field col-12">
+            <p-button
+              type="submit"
+              label="Continuar"
+              [icon]="PrimeIcons.SIGN_IN"></p-button>
+          </div>
+        </form>
+      </p-fluid>
+    </ng-template>
+
+    <ng-template #footer>
+      <div class="flex flex-wrap align-items-center justify-content-between gap-3">
+        <p-button
+          severity="info"
+          [icon]="PrimeIcons.DOWNLOAD"
+          label="Descargar Manual de Usuario"/>
+      </div>
+    </ng-template>
+  </p-panel>
+</div>
+
+<small class="text-red-500">Error asdasd</small>

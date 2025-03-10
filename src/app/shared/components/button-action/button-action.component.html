@@ -1,0 +1,14 @@
+<p-drawer [(visible)]="enabled" [closable]="false">
+  <ng-template #header>
+    {{ LabelButtonActionEnum.ACTIONS }}
+  </ng-template>
+
+  <p-panelMenu [model]="buttonActions"
+               (click)="enabled=false;
+                 isHide.emit(true)"
+               [style]="{'width':'300px'}"/>
+
+  <ng-template #footer>
+    &copy; {{ appCompanyName }} {{ currentYear }}
+  </ng-template>
+</p-drawer>

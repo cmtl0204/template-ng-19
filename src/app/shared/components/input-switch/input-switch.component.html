@@ -1,0 +1,10 @@
+<!--aa{{ value.disabled }}aa-->
+<p-inputSwitch [formControl]="value" [disabled]="disabled"/>
+
+<span class="ml-2">
+@if (value.value) {
+  {{ selected }}
+} @else {
+  {{ unselected }}
+}
+</span>

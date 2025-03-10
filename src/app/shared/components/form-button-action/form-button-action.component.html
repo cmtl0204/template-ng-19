@@ -1,0 +1,24 @@
+<div class="grid">
+  @if (isVisibleCancelButton) {
+    <p-button
+      [icon]="iconCancelButton"
+      [label]="labelCancelButton"
+      [loading]="coreService.isLoading"
+      [severity]="severityCancelButton"
+      (click)="cancel.emit()">
+    </p-button>
+
+    <p-divider layout="vertical"/>
+  }
+
+  @if (isVisibleSubmitButton) {
+    <p-button
+      iconPos="right"
+      [icon]="iconSubmitButton"
+      [label]="labelSubmitButton"
+      [loading]="coreService.isLoading"
+      [severity]="severitySubmitButton"
+      (click)="submit.emit($event)">
+    </p-button>
+  }
+</div>

@@ -1,0 +1,23 @@
+<div class="card">
+  <p-menubar [model]="items">
+    @if (!environment.production) {
+      <ng-template pTemplate="start">
+        <p-button label="Pruebas" [text]="true" severity="danger"/>
+      </ng-template>
+    }
+    <ng-template pTemplate="end">
+      <p-button [label]="nickname" [text]="true"/>
+
+      @if (authService.role) {
+        <p-button [label]="authService.role.name" [text]="true" severity="info"/>
+      }
+      <p-button
+        pTooltip="Cerrar Sesión"
+        [icon]="PrimeIcons.POWER_OFF"
+        [rounded]="true"
+        [raised]="true"
+        (click)="signOut()"
+        severity="danger"/>
+    </ng-template>
+  </p-menubar>
+</div>

@@ -1,0 +1,13 @@
+<p-panel>
+  <div class="panel-messages-error">
+    <h2>Campos con errores:</h2>
+
+    <ul>
+      @for (error of errors; track error) {
+        <li>
+          {{error}}
+        </li>
+      }
+    </ul>
+  </div>
+</p-panel>

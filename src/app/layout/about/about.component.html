@@ -1,0 +1,45 @@
+<div class="p-fluid">
+  <div class="field">
+    <h1 class="text-center">{{ environment.APP_COMPANY_NAME }}</h1>
+  </div>
+
+  <div class="field">
+    <h1 class="text-center">V {{ coreService.version }}</h1>
+  </div>
+
+  <div class="field">
+    <div class="p-inputgroup">
+      <p-button [icon]="PrimeIcons.ID_CARD" pTooltip="Autor"/>
+
+      <input pInputText [value]="environment.AUTHOR_NAME" disabled/>
+    </div>
+  </div>
+  <div class="field">
+    <div class="p-inputgroup">
+      <p-button severity="warn"
+                [icon]="PrimeIcons.ENVELOPE"
+                pTooltip="Coreo Electrónico"/>
+
+      <input pInputText [value]="environment.AUTHOR_EMAIL" disabled/>
+
+      <p-button severity="secondary"
+                [icon]="PrimeIcons.COPY"
+                (click)="copy(environment.AUTHOR_EMAIL)"
+                pTooltip="Copiar"/>
+    </div>
+  </div>
+  <div class="field">
+    <div class="p-inputgroup">
+      <p-button severity="info"
+                [icon]="PrimeIcons.PHONE"
+                pTooltip="Teléfono"/>
+
+      <input pInputText id="phone" [value]="environment.AUTHOR_PHONE" disabled/>
+
+      <p-button severity="secondary"
+                [icon]="PrimeIcons.COPY"
+                (click)="copy(environment.AUTHOR_PHONE)"
+                pTooltip="Copiar"/>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<p-drawer [(visible)]="coreService.sidebarVisible" position="left">
+  <ng-template #header>
+    {{ authService.systemShortName }}
+  </ng-template>
+
+  <p-panelMenu [model]="menus"/>
+
+  <ng-template #footer>
+    &copy; {{ appCompanyName }} {{ currentYear }}
+  </ng-template>
+</p-drawer>
+
+<p-dialog [(visible)]="isVisibleAbout"
+          [modal]="true"
+          [style]="{width: '50%'}"
+          header="Acerca de">
+
+  <app-about/>
+
+</p-dialog>
